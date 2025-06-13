@@ -2,13 +2,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Download, Mail } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import FloatingCube from './FloatingCube';
 import ParticleBackground from './ParticleBackground';
 
 const HeroSection = () => {
-  const handleScrollToProjects = () => {
-    const projectsSection = document.getElementById('projects');
-    projectsSection?.scrollIntoView({ behavior: 'smooth' });
+  const navigate = useNavigate();
+
+  const handleScrollToAbout = () => {
+    navigate('/about');
   };
 
   const handleDownloadResume = () => {
@@ -17,8 +19,7 @@ const HeroSection = () => {
   };
 
   const handleContactClick = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
+    navigate('/contact');
   };
 
   return (
@@ -106,7 +107,7 @@ const HeroSection = () => {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center"
         >
           <button
-            onClick={handleScrollToProjects}
+            onClick={handleScrollToAbout}
             className="text-muted-foreground hover:text-accent-cyan transition-colors duration-300 flex flex-col items-center gap-2"
           >
             <span className="text-sm">Scroll to explore</span>
