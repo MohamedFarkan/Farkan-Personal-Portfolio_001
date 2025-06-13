@@ -1,10 +1,9 @@
-
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useTheme } from '../contexts/ThemeContext';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useTheme } from "../contexts/ThemeContext";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const Navigation = () => {
   const { theme, toggleTheme } = useTheme();
@@ -12,19 +11,19 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/skills', label: 'Skills' },
-    { path: '/contact', label: 'Contact' }
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/projects", label: "Projects" },
+    { path: "/skills", label: "Skills" },
+    { path: "/certifications", label: "Certifications" },
+    { path: "/contact", label: "Contact" },
   ];
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 gradient-blur border-b border-border/20"
-    >
+      className="fixed top-0 left-0 right-0 z-50 gradient-blur border-b border-border/20">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -39,9 +38,10 @@ const Navigation = () => {
                 key={item.path}
                 to={item.path}
                 className={`relative px-3 py-2 text-sm font-medium transition-colors hover:text-accent-cyan ${
-                  location.pathname === item.path ? 'text-accent-cyan' : 'text-muted-foreground'
-                }`}
-              >
+                  location.pathname === item.path
+                    ? "text-accent-cyan"
+                    : "text-muted-foreground"
+                }`}>
                 {item.label}
                 {location.pathname === item.path && (
                   <motion.div
@@ -59,9 +59,8 @@ const Navigation = () => {
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
+              aria-label="Toggle theme">
+              {theme === "dark" ? (
                 <Sun className="h-5 w-5" />
               ) : (
                 <Moon className="h-5 w-5" />
@@ -72,9 +71,12 @@ const Navigation = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              aria-label="Toggle menu">
+              {isMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
@@ -83,10 +85,9 @@ const Navigation = () => {
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 pb-4"
-          >
+            className="md:hidden mt-4 pb-4">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link
@@ -94,9 +95,10 @@ const Navigation = () => {
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-3 py-2 text-sm font-medium transition-colors hover:text-accent-cyan ${
-                    location.pathname === item.path ? 'text-accent-cyan' : 'text-muted-foreground'
-                  }`}
-                >
+                    location.pathname === item.path
+                      ? "text-accent-cyan"
+                      : "text-muted-foreground"
+                  }`}>
                   {item.label}
                 </Link>
               ))}
