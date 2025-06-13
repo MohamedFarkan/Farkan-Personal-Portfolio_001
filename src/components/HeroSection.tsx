@@ -110,7 +110,7 @@ const HeroSection = () => {
             onClick={handleScrollToAbout}
             className="text-muted-foreground hover:text-accent-cyan transition-colors duration-300 flex flex-col items-center gap-2"
           >
-            <span className="text-sm">Scroll to explore</span>
+            <span className="text-sm">Click to explore</span>
             <ArrowDown className="w-5 h-5 animate-bounce" />
           </button>
         </motion.div>
