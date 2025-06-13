@@ -31,13 +31,13 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-accent-purple/20 to-accent-cyan/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
 
       <div className="container mx-auto px-6 z-10 relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center justify-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left space-y-8"
+            className="text-center space-y-8"
           >
             <motion.h1 
               className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
@@ -52,7 +52,7 @@ const HeroSection = () => {
             </motion.h1>
 
             <motion.p 
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl"
+              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -62,7 +62,7 @@ const HeroSection = () => {
             </motion.p>
 
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -90,7 +90,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center"
           >
             <div className="relative">
               <FloatingCube className="floating-animation" />
