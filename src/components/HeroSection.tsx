@@ -14,7 +14,7 @@ const HeroSection = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/public/assets/Farkan_resume3.pdf"; // Replace with the actual path to your resume file
+    link.href = "Farkan_resume3.pdf"; // Replace with the actual path to your resume file
     link.download = "My_Resume.pdf"; // Desired file name
     document.body.appendChild(link);
     link.click();
