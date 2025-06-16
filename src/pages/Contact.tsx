@@ -171,7 +171,7 @@ const Contact = () => {
                 <Github className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/mohamed-farkhan-a7389a283/"
                 className="w-12 h-12 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-accent-cyan hover:text-white transition-colors duration-300">
                 <Linkedin className="w-6 h-6" />
               </a>
