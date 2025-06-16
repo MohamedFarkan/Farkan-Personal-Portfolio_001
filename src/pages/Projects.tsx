@@ -4,30 +4,39 @@ import { ExternalLink, Github } from "lucide-react";
 
 const Projects = () => {
   const projects = [
+    // {
+    //   title: "E-commerce Platform",
+    //   description:
+    //     "A full-stack e-commerce solution with React, Node.js, and MongoDB",
+    //   technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    //   image: "/assets/certificate-1.jpg",
+    //   github: "#",
+    //   live: "#",
+    // },
     {
-      title: "E-commerce Platform",
+      title: "SmartScan - AI Summarizer",
       description:
-        "A full-stack e-commerce solution with React, Node.js, and MongoDB",
-      technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-      image: "/assets/certificate-1.jpg",
-      github: "#",
-      live: "#",
+        "SmartScan is an AI-powered tool that condenses lengthy articles into clear and concise summaries, helping you read smarter and faster.",
+      technologies: ["React", "Javascript", "Tailwind CSS", "Rapid API"],
+      image: "/public/assets/project-2.png",
+      github: "https://github.com/MohamedFarkan/AI-Summarizer",
+      live: "https://smart-scan.netlify.app/",
     },
     {
-      title: "Task Management App",
+      title: "PMT Steel Corporation – Modern Business Website",
       description:
-        "A collaborative task management application with real-time updates",
-      technologies: ["React", "TypeScript", "Socket.io", "Express"],
-      image: "/placeholder.svg",
-      github: "#",
-      live: "#",
+        "Developed and delivered a modern, responsive website for PMT Steel Corporation to showcase their steel products and boost customer engagement.",
+      technologies: ["React", "Javascript", "Framer Motion", "Tailwind CSS"],
+      image: "/public/assets/project-3.png",
+      github: "https://github.com/MohamedFarkan/PMT-STEELS",
+      live: "https://mohamedfarkan.github.io/PMT-STEELS/",
     },
     {
-      title: "Portfolio Website",
-      description: "A modern portfolio website with 3D elements and animations",
-      technologies: ["React", "Three.js", "Framer Motion", "Tailwind CSS"],
-      image: "/placeholder.svg",
-      github: "#",
+      title: "Expense Tracker",
+      description: "Expense Tracker allows users to track their money flow ",
+      technologies: ["React", "Javascript", "Tailwind CSS", "MongoDB"],
+      image: "/public/assets/project-4.png",
+      github: "https://github.com/MohamedFarkan/Expense-Tracker",
       live: "#",
     },
   ];
@@ -61,7 +70,7 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="object-cover w-full h-full"
+                  className="object-contain h-full"
                 />
               </div>
 
@@ -82,12 +91,14 @@ const Projects = () => {
                 <div className="flex gap-4 pt-4">
                   <a
                     href={project.github}
+                    target="blank"
                     className="flex items-center gap-2 text-muted-foreground hover:text-accent-cyan transition-colors">
                     <Github className="w-5 h-5" />
                     Code
                   </a>
                   <a
                     href={project.live}
+                    target="blank"
                     className="flex items-center gap-2 text-muted-foreground hover:text-accent-cyan transition-colors">
                     <ExternalLink className="w-5 h-5" />
                     Live Demo

@@ -1,28 +1,91 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
 import ParticleBackground from "../components/ParticleBackground";
+import emailjs from "@emailjs/browser";
+import { error } from "console";
+import Swal from "sweetalert2";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  // const form = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   message: "",
+  // });
+
+  // // const handleSubmit = (e: React.FormEvent) => {
+  // //   e.preventDefault();
+  // //   console.log("Form submitted:", formData);
+  // //   // Here you would integrate with EmailJS or your backend
+  // // };
+
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+
+  //   if (!form.current) return;
+
+  //   emailjs
+  //     .sendForm(
+  //       "YOUR_SERVICE_ID", // replace with your EmailJS service ID
+  //       "YOUR_TEMPLATE_ID", // replace with your EmailJS template ID
+  //       form.current,
+  //       {
+  //         publicKey: "YOUR_PUBLIC_KEY", // replace with your EmailJS public key
+  //       }
+  //     )
+  //     .then(() => {
+  //       alert("Message sent successfully!");
+  //       setFormData({ name: "", email: "", message: "" });
+  //     })
+  //     .catch((error) => {
+  //       console.error("Email sending failed:", error);
+  //       alert("Oops! Something went wrong.");
+  //     });
+  // };
+
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+
+  //https://script.google.com/macros/s/AKfycbxcOQ9J7faSN7aNV0TUA9qPSOEEvC3YpMpuK1xLKWju-3eL5YZtsSKf0__6aVGmDehNTw/exec
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would integrate with EmailJS or your backend
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    const url =
+      "https://script.google.com/macros/s/AKfycbw_hy1BQFdLIoEKasA5Q_8w0GKRZDmuWCEqpEAd1TSVOLBlE7hLc6k7mHEbF0-5XCSVvA/exec";
+    Swal.fire({
+      title: "Sending...",
+      text: "Please wait while your message is being sent.",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
     });
+
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `Name=${e.target.name.value}&Email=${e.target.email.value}&Message=${e.target.message.value}`,
+    })
+      .then((res) => res.text())
+      .then((data) => {
+        //alert(data);
+
+        Swal.fire({
+          title: "Message sent",
+          text: "Thanks for reaching out!",
+          icon: "success",
+        });
+        e.target.reset();
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -121,7 +184,7 @@ const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="gradient-blur rounded-lg p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -132,8 +195,8 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
+                  // value={formData.name}
+                  // onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-cyan transition-colors"
                   placeholder="Your name"
@@ -150,8 +213,8 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  // value={formData.email}
+                  // onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-cyan transition-colors"
                   placeholder="your.email@example.com"
@@ -168,8 +231,8 @@ const Contact = () => {
                   id="message"
                   name="message"
                   rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
+                  // value={formData.message}
+                  // onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-cyan transition-colors resize-none"
                   placeholder="Your message"

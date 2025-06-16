@@ -7,28 +7,24 @@ const Certifications = () => {
     {
       title: "Programming Basics",
       description:
-        "For successfully completing a free online course Programming Basics from Great Learning",
-      technologies: ["Programming Basics"],
+        "For successfully completing a free online course in Programming Basics from Great Learning",
+      // technologies: [""],
       image: "/public/assets/certificate-1.jpg",
-      github: "#",
-      live: "#",
+      // github: "#",
+      // live: "#",
     },
     {
-      title: "Task Management App",
+      title: "Techplement Internship",
       description:
-        "A collaborative task management application with real-time updates",
-      technologies: ["React", "TypeScript", "Socket.io", "Express"],
-      image: "/placeholder.svg",
-      github: "#",
-      live: "#",
+        " Worked remotely with a team of five to develop a dynamic news aggregator website at Techplement",
+
+      image: "/public/assets/certificate-2.png",
     },
     {
-      title: "Portfolio Website",
-      description: "A modern portfolio website with 3D elements and animations",
-      technologies: ["React", "Three.js", "Framer Motion", "Tailwind CSS"],
-      image: "/placeholder.svg",
-      github: "#",
-      live: "#",
+      title: "MongoDB 001",
+      description: "Completed MongoDB basics from MongoDB University",
+
+      image: "/public/assets/certificate-3.png",
     },
   ];
 
@@ -71,7 +67,7 @@ const Certifications = () => {
                   {certificate.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                {/* <div className="flex flex-wrap gap-2">
                   {certificate.technologies.map((tech) => (
                     <span
                       key={tech}
@@ -79,9 +75,9 @@ const Certifications = () => {
                       {tech}
                     </span>
                   ))}
-                </div>
+                </div> */}
 
-                <div className="flex gap-4 pt-4">
+                {/* <div className="flex gap-4 pt-4">
                   <a
                     href={certificate.github}
                     className="flex items-center gap-2 text-muted-foreground hover:text-accent-cyan transition-colors">
@@ -94,7 +90,7 @@ const Certifications = () => {
                     <ExternalLink className="w-5 h-5" />
                     View
                   </a>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}
