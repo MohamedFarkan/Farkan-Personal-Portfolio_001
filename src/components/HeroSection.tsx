@@ -50,7 +50,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}>
               Hello, I'm{" "}
-              <span className="gradient-text italic">Mohamed Farkan L</span>
+              <span className="gradient-text italic">Mohamed Farkan</span>
             </motion.h1>
 
             <motion.p
