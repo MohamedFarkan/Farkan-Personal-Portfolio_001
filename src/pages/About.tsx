@@ -46,7 +46,7 @@ const About = () => {
             <div className="relative">
               <div className="w-80 h-80 mx-auto rounded-full bg-gradient-to-r from-accent-cyan/20 to-accent-purple/20 flex items-center justify-center">
                 <img
-                  src="/public/assets/Farkan_photo5.jpg"
+                  src="/assets/Farkan_photo5.jpg"
                   className="w-72 h-72 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground"
                 />
                 {/* <img src="/public/assets/Farkan (1).jpg" alt="" /> */}
