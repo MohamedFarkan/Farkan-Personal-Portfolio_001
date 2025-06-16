@@ -18,7 +18,7 @@ const Projects = () => {
       description:
         "SmartScan is an AI-powered tool that condenses lengthy articles into clear and concise summaries, helping you read smarter and faster.",
       technologies: ["React", "Javascript", "Tailwind CSS", "Rapid API"],
-      image: "/public/assets/project-2.png",
+      image: "project-2.png",
       github: "https://github.com/MohamedFarkan/AI-Summarizer",
       live: "https://smart-scan.netlify.app/",
     },
@@ -27,7 +27,7 @@ const Projects = () => {
       description:
         "Developed and delivered a modern, responsive website for PMT Steel Corporation to showcase their steel products and boost customer engagement.",
       technologies: ["React", "Javascript", "Framer Motion", "Tailwind CSS"],
-      image: "/public/assets/project-3.png",
+      image: "project-3.png",
       github: "https://github.com/MohamedFarkan/PMT-STEELS",
       live: "https://mohamedfarkan.github.io/PMT-STEELS/",
     },
@@ -35,7 +35,7 @@ const Projects = () => {
       title: "Expense Tracker",
       description: "Expense Tracker allows users to track their money flow ",
       technologies: ["React", "Javascript", "Tailwind CSS", "MongoDB"],
-      image: "/public/assets/project-4.png",
+      image: "project-4.png",
       github: "https://github.com/MohamedFarkan/Expense-Tracker",
       live: "#",
     },
