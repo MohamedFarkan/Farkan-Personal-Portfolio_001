@@ -9,7 +9,7 @@ const Certifications = () => {
       description:
         "For successfully completing a free online course in Programming Basics from Great Learning",
       // technologies: [""],
-      image: "/public/assets/certificate-1.jpg",
+      image: "certificate-1.jpg",
       // github: "#",
       // live: "#",
     },
@@ -18,20 +18,20 @@ const Certifications = () => {
       description:
         " Worked remotely with a team of five to develop a dynamic news aggregator website at Techplement",
 
-      image: "/public/assets/certificate-2.png",
+      image: "certificate-2.png",
     },
     {
       title: "MongoDB 001",
       description: "Completed MongoDB basics from MongoDB University.",
 
-      image: "/public/assets/certificate-3.png",
+      image: "certificate-3.png",
     },
     {
       title: "PMT Steel Corporation",
       description:
         "Developed and delivered a modern, responsive website for PMT Steel Corporation to showcase their steel products and boost customer engagement.",
 
-      image: "/public/assets/certificate-4.jpg",
+      image: "certificate-4.jpg",
     },
   ];
 
