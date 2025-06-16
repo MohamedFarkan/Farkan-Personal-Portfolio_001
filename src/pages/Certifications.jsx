@@ -22,9 +22,16 @@ const Certifications = () => {
     },
     {
       title: "MongoDB 001",
-      description: "Completed MongoDB basics from MongoDB University",
+      description: "Completed MongoDB basics from MongoDB University.",
 
       image: "/public/assets/certificate-3.png",
+    },
+    {
+      title: "PMT Steel Corporation",
+      description:
+        "Developed and delivered a modern, responsive website for PMT Steel Corporation to showcase their steel products and boost customer engagement.",
+
+      image: "/public/assets/certificate-4.jpg",
     },
   ];
 
