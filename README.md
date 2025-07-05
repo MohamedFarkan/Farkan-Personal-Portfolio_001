@@ -61,15 +61,6 @@ Use any IDE (e.g., VS Code), make changes, then commit and push to your reposito
 
 ---
 
-## 🌍 Deployment
-
-To publish:
-
-1. Open the project in [Lovable](https://mohamedfarkan-portfolio.netlify.app/)
-2. Click **Share → Publish**
-
----
-
 ## 📫 Contact
 
 For collaboration or freelance opportunities, feel free to connect via the contact form on the website.
