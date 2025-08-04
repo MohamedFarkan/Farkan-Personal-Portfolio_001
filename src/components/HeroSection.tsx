@@ -45,7 +45,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="align-middle space-y-8">
             <motion.h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight ml-9"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight md:ml-9"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}>
@@ -54,7 +54,7 @@ const HeroSection = () => {
             </motion.h1>
 
             <motion.p
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto ml-9"
+              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto md:ml-9"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}>
