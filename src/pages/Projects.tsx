@@ -14,6 +14,40 @@ const Projects = () => {
     //   live: "#",
     // },
     {
+      title: "AI Saas Web App",
+      description:
+        "This is an AI Software-as-a-Service (SaaS) web application that offers a suite of advanced features, including article generation, image creation, and more.",
+      technologies: [
+        "React",
+        "Javascript",
+        "Tailwind CSS",
+        "Gemini API",
+        "Neon for PostgreSQL",
+        "Cloudinary",
+        "Clerk authentication",
+        "Clerk Payment gateway",
+      ],
+      image: "project-6.png",
+      github: "https://github.com/MohamedFarkan/AI_Saas",
+      live: "",
+    },
+    {
+      title: "Moleculyst - Learning and Research platform",
+      description:
+        "Moleculyst is a drug discovery and protein-binding prediction tool built with the latest in machine learning and natural language processing (NLP) technology. Powered by NVIDIA NIM and protein structure prediction models, this project enables users to simulate molecular interactions and predict protein structures.",
+      technologies: [
+        "React",
+        "Javascript",
+        "Tailwind CSS",
+        "NVIDIA API",
+        "MongoDB",
+        "Gemini API",
+      ],
+      image: "project-5.png",
+      github: "https://github.com/MohamedFarkan/Moleculyst",
+      live: "",
+    },
+    {
       title: "SmartScan - AI Summarizer",
       description:
         "SmartScan is an AI-powered tool that condenses lengthy articles into clear and concise summaries, helping you read smarter and faster.",

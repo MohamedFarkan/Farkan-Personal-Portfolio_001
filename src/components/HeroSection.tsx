@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Mail } from "lucide-react";
+import { ArrowDown, ArrowRight, Download, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import FloatingCube from "./FloatingCube";
 import ParticleBackground from "./ParticleBackground";
@@ -45,7 +45,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="align-middle space-y-8">
             <motion.h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight ml-9"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}>
@@ -54,11 +54,11 @@ const HeroSection = () => {
             </motion.h1>
 
             <motion.p
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
+              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto ml-9"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}>
-              Web Developer - crafting digital experiences with modern
+              Web Developer - Crafting digital experiences with modern
               technologies and creative solutions.
             </motion.p>
 
@@ -104,9 +104,9 @@ const HeroSection = () => {
           className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-20 text-center">
           <button
             onClick={handleScrollToAbout}
-            className="text-muted-foreground hover:text-accent-cyan transition-colors duration-300 flex flex-col items-center gap-2">
+            className="text-muted-foreground hover:text-accent-cyan transition-colors duration-1000 flex flex-col items-center gap-2 animate-pulse">
             <span className="text-sm">Click to explore</span>
-            <ArrowDown className="w-5 h-5 animate-bounce" />
+            <ArrowRight className="w-5 h-5 animate-pulse" />
           </button>
         </motion.div>
       </div>
