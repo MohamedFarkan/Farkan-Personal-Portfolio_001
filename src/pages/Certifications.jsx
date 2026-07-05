@@ -1,107 +1,130 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { Award, CheckCircle } from "lucide-react";
 
 const Certifications = () => {
   const certifications = [
     {
       title: "Programming Basics",
+      type: "Course",
       description:
-        "For successfully completing a free online course in Programming Basics from Great Learning",
-      // technologies: [""],
+        "Completed foundational programming course covering logic building, problem solving, and core programming concepts.",
       image: "certificate-1.jpg",
-      // github: "#",
-      // live: "#",
     },
     {
       title: "Techplement Internship",
+      type: "Internship",
       description:
-        " Worked remotely with a team of five to develop a dynamic news aggregator website at Techplement",
-
+        "Worked with a team to develop a dynamic news aggregator web application using modern web technologies.",
       image: "certificate-2.png",
     },
     {
-      title: "MongoDB 001",
-      description: "Completed MongoDB basics from MongoDB University.",
-
+      title: "MongoDB Basics (M001)",
+      type: "Database",
+      description:
+        "Completed MongoDB University certification covering NoSQL concepts, CRUD operations, and database modeling.",
       image: "certificate-3.png",
     },
     {
-      title: "PMT Steel Corporation",
+      title: "PMT Steel Corporation Project",
+      type: "Real Project",
       description:
-        "Developed and delivered a modern, responsive website for PMT Steel Corporation to showcase their steel products and boost customer engagement.",
-
+        "Developed a responsive business website for a steel corporation to improve product visibility and customer engagement.",
       image: "certificate-4.jpg",
     },
   ];
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen pt-32 pb-16"
-      id="certifications">
+      className="min-h-screen pt-32 pb-16">
       <div className="container mx-auto px-6">
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-16 gradient-text text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}>
-          My Certifications
-        </motion.h1>
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center mb-14">
+          <h1 className="text-5xl font-bold gradient-text">
+            Certifications & Achievements
+          </h1>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            A collection of certifications, internships, and real-world project
+            experiences that shaped my development journey.
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {certifications.map((certificate, index) => (
+        {/* GRID */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {certifications.map((item, index) => (
             <motion.div
-              key={certificate.title}
+              key={item.title}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg hover:shadow-accent-cyan/10 transition-all duration-300 transform hover:scale-105">
-              <div className="aspect-video bg-gradient-to-br from-accent-cyan/20 to-accent-purple/20 flex items-center justify-center">
+              transition={{ delay: index * 0.1 }}
+              className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:border-accent-cyan transition-all duration-300 hover:-translate-y-2">
+              {/* IMAGE */}
+              <div className="h-48 bg-gradient-to-br from-accent-cyan/10 to-accent-purple/10 flex items-center justify-center overflow-hidden">
                 <img
-                  src={certificate.image}
-                  alt={certificate.title}
-                  className="object-contain  h-full"
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full object-contain group-hover:scale-110 transition duration-500"
                 />
               </div>
 
+              {/* CONTENT */}
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-semibold">{certificate.title}</h3>
-                <p className="text-muted-foreground">
-                  {certificate.description}
+                {/* TYPE BADGE */}
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20">
+                    <CheckCircle className="w-3 h-3" />
+                    {item.type}
+                  </span>
+
+                  <span className="text-xs text-muted-foreground">
+                    Verified
+                  </span>
+                </div>
+
+                {/* TITLE */}
+                <h3 className="text-xl font-semibold group-hover:text-accent-cyan transition">
+                  {item.title}
+                </h3>
+
+                {/* DESCRIPTION */}
+                <p className="text-sm text-muted-foreground leading-6">
+                  {item.description}
                 </p>
-
-                {/* <div className="flex flex-wrap gap-2">
-                  {certificate.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-accent/20 text-accent-foreground text-sm rounded-full">
-                      {tech}
-                    </span>
-                  ))}
-                </div> */}
-
-                {/* <div className="flex gap-4 pt-4">
-                  <a
-                    href={certificate.github}
-                    className="flex items-center gap-2 text-muted-foreground hover:text-accent-cyan transition-colors">
-                    <Github className="w-5 h-5" />
-                    Code
-                  </a>
-                  <a
-                    href={certificate.live}
-                    className="flex items-center gap-2 text-muted-foreground hover:text-accent-cyan transition-colors">
-                    <ExternalLink className="w-5 h-5" />
-                    View
-                  </a>
-                </div> */}
               </div>
+
+              {/* Glow effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-accent-cyan/5 to-accent-purple/5 transition duration-500 pointer-events-none" />
             </motion.div>
           ))}
         </div>
+
+        {/* HIGHLIGHT SECTION */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-20">
+          <div className="bg-gradient-to-r from-accent-cyan/10 to-accent-purple/10 border border-border rounded-3xl p-10 text-center max-w-4xl mx-auto">
+            <Award className="w-10 h-10 mx-auto mb-4 text-accent-cyan" />
+
+            <h2 className="text-3xl font-bold gradient-text mb-4">
+              Continuous Learning
+            </h2>
+
+            <p className="text-muted-foreground leading-8">
+              I actively pursue certifications and hands-on projects to
+              strengthen my expertise in software development, databases, and
+              enterprise PLM systems like Siemens Teamcenter. Every
+              certification reflects my commitment to continuous improvement and
+              real-world problem solving.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );

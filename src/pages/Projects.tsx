@@ -1,141 +1,170 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Rocket } from "lucide-react";
 
 const Projects = () => {
+  const [filter, setFilter] = useState("All");
+
   const projects = [
-    // {
-    //   title: "E-commerce Platform",
-    //   description:
-    //     "A full-stack e-commerce solution with React, Node.js, and MongoDB",
-    //   technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-    //   image: "/assets/certificate-1.jpg",
-    //   github: "#",
-    //   live: "#",
-    // },
     {
-      title: "AI Saas Web App",
+      title: "AI SaaS Web App",
+      category: "AI",
       description:
-        "This is an AI Software-as-a-Service (SaaS) web application that offers a suite of advanced features, including article generation, image creation, and more.",
-      technologies: [
-        "React",
-        "Javascript",
-        "Tailwind CSS",
-        "Gemini API",
-        "Neon for PostgreSQL",
-        "Cloudinary",
-        "Clerk authentication",
-        "Clerk Payment gateway",
-      ],
+        "AI-powered SaaS platform for article generation, image creation, and automation using Gemini API.",
+      technologies: ["React", "Tailwind", "Gemini API", "PostgreSQL", "Clerk"],
       image: "project-6.png",
       github: "https://github.com/MohamedFarkan/AI_Saas",
       live: "",
+      featured: true,
     },
     {
-      title: "Moleculyst - Learning and Research platform",
+      title: "Moleculyst - Drug Discovery Platform",
+      category: "AI",
       description:
-        "Moleculyst is a drug discovery and protein-binding prediction tool built with the latest in machine learning and natural language processing (NLP) technology. Powered by NVIDIA NIM and protein structure prediction models, this project enables users to simulate molecular interactions and predict protein structures.",
-      technologies: [
-        "React",
-        "Javascript",
-        "Tailwind CSS",
-        "NVIDIA API",
-        "MongoDB",
-        "Gemini API",
-      ],
+        "AI-powered drug discovery platform using ML and protein structure prediction with NVIDIA APIs.",
+      technologies: ["React", "NVIDIA API", "MongoDB", "Gemini API"],
       image: "project-5.png",
       github: "https://github.com/MohamedFarkan/Moleculyst",
       live: "",
+      featured: true,
     },
     {
       title: "SmartScan - AI Summarizer",
+      category: "AI",
       description:
-        "SmartScan is an AI-powered tool that condenses lengthy articles into clear and concise summaries, helping you read smarter and faster.",
-      technologies: ["React", "Javascript", "Tailwind CSS", "Rapid API"],
+        "Summarizes long articles into concise insights using AI for faster reading and productivity.",
+      technologies: ["React", "Rapid API", "Tailwind"],
       image: "project-2.png",
       github: "https://github.com/MohamedFarkan/AI-Summarizer",
       live: "https://smart-scan.netlify.app/",
+      featured: false,
     },
     {
-      title: "PMT Steel Corporation – Modern Business Website",
+      title: "PMT Steel Website",
+      category: "Web",
       description:
-        "Developed and delivered a modern, responsive website for PMT Steel Corporation to showcase their steel products and boost customer engagement.",
-      technologies: ["React", "Javascript", "Framer Motion", "Tailwind CSS"],
+        "Modern business website built for steel corporation to showcase products and improve engagement.",
+      technologies: ["React", "Framer Motion", "Tailwind"],
       image: "project-3.png",
       github: "https://github.com/MohamedFarkan/PMT-STEELS",
       live: "https://mohamedfarkan.github.io/PMT-STEELS/",
+      featured: false,
     },
     {
-      title: "Expense Tracker",
-      description: "Expense Tracker allows users to track their money flow ",
-      technologies: ["React", "Javascript", "Tailwind CSS", "MongoDB"],
+      title: "Expense Tracker App",
+      category: "Full Stack",
+      description:
+        "Track income and expenses with a simple full-stack MERN application.",
+      technologies: ["React", "MongoDB", "Node"],
       image: "project-4.png",
       github: "https://github.com/MohamedFarkan/Expense-Tracker",
       live: "#",
+      featured: false,
     },
   ];
 
+  const categories = ["All", "AI", "Web", "Full Stack"];
+
+  const filteredProjects =
+    filter === "All" ? projects : projects.filter((p) => p.category === filter);
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen pt-32 pb-16"
-      id="projects">
+      className="min-h-screen pt-32 pb-16">
       <div className="container mx-auto px-6">
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-16 gradient-text text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}>
-          Featured Projects
-        </motion.h1>
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center mb-12">
+          <h1 className="text-5xl font-bold gradient-text">My Projects</h1>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            A collection of my work in AI, web development, and full-stack
+            applications.
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
+        {/* FILTER BUTTONS */}
+        <div className="flex justify-center flex-wrap gap-4 mb-12">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-5 py-2 rounded-full border transition-all duration-300 ${
+                filter === cat
+                  ? "bg-accent-cyan text-white border-accent-cyan"
+                  : "border-border text-muted-foreground hover:border-accent-cyan"
+              }`}>
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* GRID */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg hover:shadow-accent-cyan/10 transition-all duration-300 transform hover:scale-105">
-              <div className="aspect-video bg-gradient-to-br from-accent-cyan/20 to-accent-purple/20 flex items-center justify-center">
+              transition={{ delay: index * 0.1 }}
+              className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:border-accent-cyan transition-all duration-300 hover:-translate-y-2">
+              {/* Featured badge */}
+              {project.featured && (
+                <div className="absolute top-3 left-3 bg-accent-cyan text-black text-xs px-3 py-1 rounded-full flex items-center gap-1">
+                  <Rocket className="w-3 h-3" />
+                  Featured
+                </div>
+              )}
+
+              {/* IMAGE */}
+              <div className="h-48 overflow-hidden bg-gradient-to-br from-accent-cyan/10 to-accent-purple/10 flex items-center justify-center">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="object-contain h-full"
+                  className="h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
 
+              {/* CONTENT */}
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="text-muted-foreground">{project.description}</p>
+                <h3 className="text-xl font-semibold group-hover:text-accent-cyan transition">
+                  {project.title}
+                </h3>
 
+                <p className="text-muted-foreground text-sm leading-6">
+                  {project.description}
+                </p>
+
+                {/* TECH STACK */}
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-accent/20 text-accent-foreground text-sm rounded-full">
+                      className="text-xs px-3 py-1 rounded-full bg-background border border-border">
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-4 pt-4">
+                {/* LINKS */}
+                <div className="flex justify-between pt-4">
                   <a
                     href={project.github}
-                    target="blank"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-accent-cyan transition-colors">
-                    <Github className="w-5 h-5" />
+                    target="_blank"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent-cyan">
+                    <Github className="w-4 h-4" />
                     Code
                   </a>
+
                   <a
                     href={project.live}
-                    target="blank"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-accent-cyan transition-colors">
-                    <ExternalLink className="w-5 h-5" />
-                    Live Demo
+                    target="_blank"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent-cyan">
+                    <ExternalLink className="w-4 h-4" />
+                    Live
                   </a>
                 </div>
               </div>

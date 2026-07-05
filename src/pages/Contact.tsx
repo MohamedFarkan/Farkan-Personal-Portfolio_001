@@ -7,55 +7,6 @@ import { error } from "console";
 import Swal from "sweetalert2";
 
 const Contact = () => {
-  // const form = useRef<HTMLFormElement>(null);
-
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   message: "",
-  // });
-
-  // // const handleSubmit = (e: React.FormEvent) => {
-  // //   e.preventDefault();
-  // //   console.log("Form submitted:", formData);
-  // //   // Here you would integrate with EmailJS or your backend
-  // // };
-
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-
-  //   if (!form.current) return;
-
-  //   emailjs
-  //     .sendForm(
-  //       "YOUR_SERVICE_ID", // replace with your EmailJS service ID
-  //       "YOUR_TEMPLATE_ID", // replace with your EmailJS template ID
-  //       form.current,
-  //       {
-  //         publicKey: "YOUR_PUBLIC_KEY", // replace with your EmailJS public key
-  //       }
-  //     )
-  //     .then(() => {
-  //       alert("Message sent successfully!");
-  //       setFormData({ name: "", email: "", message: "" });
-  //     })
-  //     .catch((error) => {
-  //       console.error("Email sending failed:", error);
-  //       alert("Oops! Something went wrong.");
-  //     });
-  // };
-
-  // const handleChange = (
-  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  // ) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  //https://script.google.com/macros/s/AKfycbxcOQ9J7faSN7aNV0TUA9qPSOEEvC3YpMpuK1xLKWju-3eL5YZtsSKf0__6aVGmDehNTw/exec
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const url =
@@ -184,7 +135,11 @@ const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="gradient-blur rounded-lg p-8">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form
+              action="https://formsubmit.co/mohamedfarkan7@gmail.com"
+              method="post"
+              className="space-y-6"
+              onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"

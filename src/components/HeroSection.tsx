@@ -54,12 +54,13 @@ const HeroSection = () => {
             </motion.h1>
 
             <motion.p
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto md:ml-9"
+              className="text-xl md:text-xl text-muted-foreground max-w-2xl mx-auto md:ml-9"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}>
-              Web Developer - Crafting digital experiences with modern
-              technologies and creative solutions.
+              PLM Developer @ Intelizign – Building and customizing Siemens
+              Teamcenter solutions using ITK, BMIDE, and Active Workspace to
+              streamline product lifecycle management and engineering workflows.
             </motion.p>
 
             <motion.div
